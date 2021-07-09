@@ -1,0 +1,52 @@
+<%- layout('layouts/boilerplate.ejs')  %> 
+
+<body>
+    
+    <h1 class="main-title">YEETOZ New</h1>
+    <div class="feed-zone container">
+        <form action="/burritos" method="POST" enctype="multipart/form-data">
+            <div>
+                <label for="title">Title</label>
+                <input type="text" name="burrito[title]" id="title" required>
+            </div>
+            
+            <div>
+                <label for="image">Image</label>
+                <input type="file" name="image" id="image" required>
+            </div>
+            
+            <div>
+                <label for="restaurant">Restaurant</label>
+                <input type="text" name="burrito[restaurant]" id="restaurant" required>
+            </div>
+            
+            <div>
+                <label for="location">Location</label>
+                <input type="text" name="burrito[location]" id="location" required>
+            </div>
+            
+            <div>
+                <label for="price">Price</label>
+                <input type="text" name="burrito[price]" id="price" required>
+            </div>
+            
+            <div>
+                <label for="description">Description</label>
+                <textarea name="burrito[description]" id="description" required>Spill the tea on that burrito...</textarea>
+            </div>
+            
+            <div>
+                <label for="opinion">Opinion?</label>
+                <select name="burrito[opinion]">
+                    <option name="megusta" id="megusta">Me gusta</option>
+                    <option name="nomegusta" id="nomegusta">YEET</option>
+                </select>
+            </div>
+            
+            <div>
+                <button>Submit</button> 
+            </div>
+        </form>
+    </div>
+    
+</body>

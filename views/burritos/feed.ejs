@@ -1,0 +1,24 @@
+<%- layout('layouts/boilerplate.ejs')  %> 
+
+<body>
+    <h1 class="main-title">YEETOZ Feed</h1>
+    <section class="feed-zone container">
+        <% for (let burrito of burritos) { %>
+            <div class="feed-card">
+                <div class="card-title">
+                    <h3><a href="/burritos/<%= burrito._id  %> "><%= burrito.title %></a></h3>
+                </div>
+
+                <div class="card-section">
+                    <% for(let img of burrito.image) { %> 
+                    <img class="feed-img" src="<%= img.url %>">
+                    <% } %> 
+                </div>
+                
+                <div class="card-section-last">
+                    <%= moment(burrito.createdAt).format('MMMM Do YYYY, h:mm:ss a') %>
+                </div>
+            </div>
+        <% } %>  
+    </section>
+</body>

@@ -1,0 +1,114 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+   background: rgb(255, 255, 255);
+   font-family: 'Roboto', sans-serif;
+}
+
+header {
+    height: 50px;
+    width: 100%;
+    background: #d8d8d8;
+}
+
+header ul {
+    display: inline-block;
+    position: relative;
+}
+
+nav *{
+    display: inline-block;
+}
+
+nav a {
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+    font-size: 16px;
+    margin: 0;
+    margin: 0 10px;
+    width: auto;
+}
+nav a:hover {
+    color:rgb(255, 255, 255);
+}
+
+.main-title {
+    text-align: center;
+}
+
+.container {
+    display: flex;
+    width: 100%;
+}
+
+.feed-zone {
+    flex-direction: column;
+    align-items: center;
+}
+
+.feed-card {
+    width: 300px;
+    border: 2px solid rgb(185, 185, 185);
+    border-radius: 2px;
+    margin: 15px;
+}
+
+.card-title {
+    font-size: 26px;
+    font-weight: bold;
+    padding: 5px 10px;
+    border-bottom: 2px solid rgb(185, 185, 185);
+}
+
+.card-section {
+    border-bottom: 2px solid rgb(185, 185, 185);
+    padding: 5px;
+}
+
+.card-section-last {
+    background:#d8d8d8;
+    text-align: center;
+    padding: 5px;
+}
+
+.card-section-interact {
+    display: flex;
+    justify-content: space-between;
+    width: 300px;
+    margin-bottom: 10px;
+    padding: 0 10px;
+}
+
+.megusta-btn{
+    width: 120px;
+    height: 30px;
+    background: rgb(0, 89, 255);
+    border: 2px solid rgb(0, 89, 255);
+    border-radius: 2px;
+    color: white;
+}
+
+.megusta-btn:hover {
+    background: rgb(0, 174, 255);
+    border: 2px solid rgb(0, 174, 255);
+}
+
+.yeet-btn {
+    width: 120px;
+    height: 30px;
+    background: red;
+    border: 2px solid red;
+    border-radius: 2px;
+    color: white;
+
+}
+
+.card-text-indent {
+    padding-left: 20px;
+}
+
+.feed-img {
+    width: 100%;
+}
