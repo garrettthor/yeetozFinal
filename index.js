@@ -68,6 +68,12 @@ passport.use(new passportLocal(User.authenticate()));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
+app.use((req, res, next) =>{
+    res.locals.success = req.flash('success');
+    res.locals.error = req.flash('error');
+    next();
+})
+
 app.use((req, res, next) => {
     res.locals.moment = moment;
     next();
@@ -93,7 +99,8 @@ app.post('/burritos', upload.single('image'), async(req, res) => {
     // newBurrito.author = req.user._id;
     await newBurrito.save();
     // console.log(newBurrito)
-    res.redirect('/burritos')
+    req.flash('success', 'Successfully posted new Burrito!');
+    res.redirect('/burritos');
 });
 
 app.get('/burritos/:id', async(req, res) => {
