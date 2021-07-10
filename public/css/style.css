@@ -7,10 +7,16 @@ body {
    font-family: 'Roboto', sans-serif;
 }
 
+/*-----------------------------------------------*/
+/* HEADER STYLING */
+/*-----------------------------------------------*/
+
 header {
     height: 50px;
     width: 100%;
     background: #d8d8d8;
+    position: sticky;
+    top: 0;
 }
 
 header ul {
@@ -34,6 +40,10 @@ nav a:hover {
     color:rgb(255, 255, 255);
 }
 
+/*-----------------------------------------------*/
+/* CARD STYLING */
+/*-----------------------------------------------*/
+
 .main-title {
     text-align: center;
 }
@@ -49,7 +59,7 @@ nav a:hover {
 }
 
 .feed-card {
-    width: 300px;
+    width: 400px;
     border: 2px solid rgb(185, 185, 185);
     border-radius: 2px;
     margin: 15px;
@@ -67,6 +77,12 @@ nav a:hover {
     padding: 5px;
 }
 
+.card-image {
+    margin: 0;
+    padding: 0;
+    border-bottom: 2px solid rgb(185, 185, 185);
+}
+
 .card-section-last {
     background:#d8d8d8;
     text-align: center;
@@ -81,6 +97,18 @@ nav a:hover {
     padding: 0 10px;
 }
 
+.feed-img {
+    width: 100%;
+}
+
+.card-text-indent {
+    padding-left: 20px;
+}
+
+/*-----------------------------------------------*/
+/* BUTTON STYLING */
+/*-----------------------------------------------*/
+
 .megusta-btn{
     width: 120px;
     height: 30px;
@@ -93,6 +121,7 @@ nav a:hover {
 .megusta-btn:hover {
     background: rgb(0, 174, 255);
     border: 2px solid rgb(0, 174, 255);
+    cursor: pointer;
 }
 
 .yeet-btn {
@@ -102,13 +131,14 @@ nav a:hover {
     border: 2px solid red;
     border-radius: 2px;
     color: white;
-
 }
 
-.card-text-indent {
-    padding-left: 20px;
+.yeet-btn:hover {
+    background: rgb(255, 120, 120);
+    border: 2px solid rgb(255, 120, 120);
+    cursor: pointer;
 }
 
-.feed-img {
-    width: 100%;
+.input-field {
+    margin: 10px;
 }
