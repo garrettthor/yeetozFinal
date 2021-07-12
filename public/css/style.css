@@ -66,10 +66,20 @@ nav a:hover {
 }
 
 .card-title {
+    color: white;
+
+    background:rgb(60, 190, 100);
     font-size: 26px;
     font-weight: bold;
-    padding: 5px 10px;
+    padding: 15px 10px;
     border-bottom: 2px solid rgb(185, 185, 185);
+}
+
+.card-title a {
+    color: white;
+}
+.card-title a:hover {
+    color:rgb(244, 255, 147);
 }
 
 .card-section {
@@ -80,7 +90,8 @@ nav a:hover {
 .card-image {
     margin: 0;
     padding: 0;
-    border-bottom: 2px solid rgb(185, 185, 185);
+    margin-bottom: -4px;
+    
 }
 
 .card-section-last {
