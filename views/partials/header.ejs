@@ -4,8 +4,21 @@
             <li><a href="/">Home</a></li>
             <li><a href="/burritos">Feed</a></li>
             <li><a href="/burritos/new">New</a></li>
-            <li><a href="/users/login">Log in</a></li>
-            <li><a href="/users/register">Register</a></li>
+            <% if(currentUser) { %> 
+                <li><a class="disabled-link" href="/users/login">Log in</a></li>
+            <% } %>
+            <% if(!currentUser) { %> 
+                <li><a href="/users/login">Log in</a></li>
+            <% } %>
+            <% if(currentUser) { %> 
+                <li><a class="disabled-link" href="/users/register">Register</></li>
+            <% } %>
+            <% if(!currentUser) { %> 
+                <li><a href="/users/register">Register</a></li>
+            <% } %>
+            <% if(currentUser) { %>
+                <li><a href="/users/logout">Logout</a></li>
+            <% } %> 
         </ul>
     </nav>
 </header>

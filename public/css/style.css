@@ -40,6 +40,15 @@ nav a:hover {
     color:rgb(255, 255, 255);
 }
 
+.disabled-link {
+    pointer-events: none;
+    color:grey;
+}
+
+.align-right {
+    text-align: right;
+}
+
 /*-----------------------------------------------*/
 /* CARD STYLING */
 /*-----------------------------------------------*/
@@ -190,8 +199,8 @@ nav a:hover {
     background: rgb(255, 120, 120);
     border: 2px solid rgb(255, 120, 120);
     border-radius: 2px;
-    height: 30px;
-    width: 30px;
+    height: 20px;
+    width: 20px;
 }
 
 .close-out-btn:hover {
@@ -216,6 +225,11 @@ nav a:hover {
     width: 400px;
 }
 
+label {
+    display: inline-block;
+    margin-bottom: 3px;
+}
+
 form button {
     color: #fff;
     font-size: 20px;
@@ -236,4 +250,12 @@ form button:hover {
 form button:active {
     background: rgb(60, 190, 100);
     border: 2px solid rgb(60, 190, 100);
+}
+
+/*-----------------------------------------------*/
+/* NEW BURRITO POST STYLING */
+/*-----------------------------------------------*/
+
+textarea {
+    width: 400px;
 }

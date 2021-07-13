@@ -97,7 +97,7 @@ app.get('/burritos/new', (req, res) => {
 app.post('/burritos', upload.single('image'), async(req, res) => {
     const newBurrito = new Burrito(req.body.burrito);
     newBurrito.image = ({ url: req.file.path, filename: req.file.filename });
-    // newBurrito.author = req.user._id;
+    newBurrito.author = req.user._id;
     await newBurrito.save();
     // console.log(newBurrito)
     req.flash('success', 'Successfully posted new Burrito!');
@@ -105,9 +105,14 @@ app.post('/burritos', upload.single('image'), async(req, res) => {
 });
 
 app.get('/burritos/:id', async(req, res) => {
-    const burrito = await Burrito.findById(req.params.id)
-    // console.log(burrito)
+    const burrito = await (await Burrito.findById(req.params.id)).populate('author')
+    console.log(burrito)
     res.render('burritos/display', { burrito })
+});
+
+app.post('/users/login', passport.authenticate('local', { failureFlash: true, failureRedirect: '/users/login' }), (req, res) => {
+    req.flash('success', 'Welcome back!')
+    res.redirect('/burritos');
 });
 
 app.get('/users/login', (req, res) =>{
@@ -132,6 +137,12 @@ app.post('/users/register', async(req, res)=>{
         req.flash('error', err.message);
         res.redirect('register');
     };
+});
+
+app.get('/users/logout', (req, res) =>{
+    req.logout();
+    req.flash('success', 'Adios, hasta pronto');
+    res.redirect('/burritos')
 });
 
 

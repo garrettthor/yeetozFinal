@@ -11,7 +11,7 @@
 
                 <div class="card-image">
                     <% for(let img of burrito.image) { %> 
-                    <img class="feed-img" src="<%= img.url %>">
+                        <a href="/burritos/<%= burrito._id  %> "><img class="feed-img" src="<%= img.url %>"></a>
                     <% } %> 
                 </div>
                 
