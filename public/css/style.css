@@ -150,6 +150,90 @@ nav a:hover {
     cursor: pointer;
 }
 
+/*-----------------------------------------------*/
+/* ERROR STYLING */
+/*-----------------------------------------------*/
+
+.flash-window {
+    display: flex;
+}
+
+.flash-message-error {
+    display:flex;
+    justify-content: center;
+    font-size: 20px;
+    margin: 0 auto;
+    margin-top: 20px;
+    padding: 10px;
+    border: 2px solid rgb(255, 120, 120);
+    border-radius: 2px;
+    width: 400px;
+}
+
+.flash-message-success {
+    display: flex;
+    justify-content: center;
+    font-size: 20px;
+    margin: 0 auto;
+    margin-top: 20px;
+    padding: 10px;
+    border: 2px solid rgb(60, 190, 100);
+    border-radius: 2px;
+    width: 400px;
+}
+
+.close-out-btn {
+    margin-left: 30px;
+    line-height: 20px;
+    color: #fff;
+    font-size: 20px;
+    background: rgb(255, 120, 120);
+    border: 2px solid rgb(255, 120, 120);
+    border-radius: 2px;
+    height: 30px;
+    width: 30px;
+}
+
+.close-out-btn:hover {
+    background: rgb(253, 162, 162);
+    border: 2px solid rgb(253, 162, 162);
+}
+
+.close-out-btn:active {
+    background: rgb(255, 120, 120);
+    border: 2px solid rgb(255, 120, 120);
+}
+
+/*-----------------------------------------------*/
+/* REGISTRATION/LOGIN STYLING */
+/*-----------------------------------------------*/
+
 .input-field {
     margin: 10px;
+}
+
+.input-field div input {
+    width: 400px;
+}
+
+form button {
+    color: #fff;
+    font-size: 20px;
+    background: rgb(60, 190, 100);
+    border: 2px solid rgb(60, 190, 100);
+    border-radius: 2px;
+    height: 40px;
+    margin: 10px;
+    margin-top: 20px;
+    width: 400px;
+}
+
+form button:hover {
+    background: rgb(70, 241, 121);
+    border: 2px solid rgb(70, 241, 121);
+}
+
+form button:active {
+    background: rgb(60, 190, 100);
+    border: 2px solid rgb(60, 190, 100);
 }

@@ -4,13 +4,21 @@
 <div class="container feed-zone">
     <form action="/login" method="POST">
         <div class="input-field">
-            <label for="username">Username:</label>
-            <input type="text" name="user[username]" id="username">
+            <div>
+                <label for="username">Username:</label>
+            </div>
+            <div>
+                <input type="text" name="username" id="username">
+            </div>
         </div>
         
         <div class="input-field">
-            <label for="password">Password:</label>
-            <input type="password" name="user[password]" id="password">
+            <div>
+                <label for="password">Password:</label>
+            </div>
+            <div>
+                <input type="password" name="password" id="password">
+            </div>
         </div>
 
         <button>Submit</button>

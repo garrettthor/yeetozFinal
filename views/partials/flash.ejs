@@ -1,0 +1,17 @@
+<% if(success && success.length) { %>
+    <div class="flash-message-success flash-window">
+        <div>
+            <%= success %>
+        </div>
+        <button class="close-out-btn">X</button>
+    </div>
+<% } %>
+
+<% if(error && error.length) { %>
+    <div class="flash-message-error flash-window">
+        <div>
+            <%= error %>
+        </div>
+        <button class="close-out-btn">X</button>
+    </div>
+<% } %>

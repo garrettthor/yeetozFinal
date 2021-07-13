@@ -13,11 +13,14 @@
 </head>
 <body>
 
-    <%- include('../partials/header.ejs')  %> 
+    <%- include('../partials/header.ejs')  %>
 
-    <%= success %> 
+    <%- include('../partials/flash.ejs') %> 
 
-    <%- body %> 
+    <%- body %>
+
+    <!-- Loads JS for flash logic -->
+    <script type="text/javascript" src="/js/flashlogic.js"></script>
     
 </body>
 </html>

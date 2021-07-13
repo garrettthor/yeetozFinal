@@ -1,21 +1,34 @@
 <%- layout('layouts/boilerplate.ejs')  %> 
 
-<h1 class="main-title">YEETOZ Register new user</h1>
+<h1 class="main-title">YEETOZ Registration</h1>
 <div class="container feed-zone">
     <form action="/users/register" method="POST">
         <div class="input-field">
-            <label for="email">Email:</label>
-            <input type="email" name="user[email]" id="email">
+            <div>
+                <label for="email">Email:</label>
+            </div>
+            <div>
+                <input type="email" name="email" id="email">
+            </div>
+
         </div>
        
         <div class="input-field">
-            <label for="username">Username:</label>
-            <input type="text" name="user[username]" id="username">
+            <div>
+                <label for="username">Username:</label>
+            </div>
+            <div>
+                <input type="text" name="username" id="username">
+            </div>
         </div>
         
         <div class="input-field">
-            <label for="password">Password:</label>
-            <input type="password" name="user[password]" id="password">
+            <div>
+                <label for="password">Password:</label>
+            </div>
+            <div>
+                <input type="password" name="password" id="password">
+            </div>
         </div>
 
         <button>Submit</button>
