@@ -105,9 +105,28 @@ app.post('/burritos', upload.single('image'), async(req, res) => {
 });
 
 app.get('/burritos/:id', async(req, res) => {
-    const burrito = await (await Burrito.findById(req.params.id)).populate('author')
-    console.log(burrito)
-    res.render('burritos/display', { burrito })
+    const burrito = await Burrito.findById(req.params.id).populate('author')
+    // console.log(burrito);
+    res.render('burritos/display', { burrito });
+});
+
+app.get('/burritos/:id/edit', async(req, res) => {
+    const burrito = await Burrito.findById(req.params.id);
+    res.render('burritos/edit', { burrito });
+});
+
+app.put('/burritos/:id', async(req, res) => {
+    req.flash('success', 'Changes accepted.')
+    const { id } = req.params;
+    const burrito = await Burrito.findByIdAndUpdate(id, { ...req.body.burrito });
+    res.redirect(`/burritos/${burrito._id}`);
+});
+
+app.delete('/burritos/:id', async(req, res) =>{
+    req.flash('success', 'YEETed that burrito.  It gone!');
+    const { id } = req.params;
+    const burrito = await Burrito.findByIdAndDelete(id);
+    res.redirect('/burritos');
 });
 
 app.post('/users/login', passport.authenticate('local', { failureFlash: true, failureRedirect: '/users/login' }), (req, res) => {

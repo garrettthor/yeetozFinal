@@ -8,7 +8,7 @@
                 </div>
 
                 <div class="card-section">
-                    by: <%= burrito.author %> 
+                    by: <%= burrito.author.username %> 
                 </div>
 
                 <div class="card-image">
@@ -46,7 +46,14 @@
             </div>
             <div>
                 <h2>69%</h2>
-            </div>
+            </div> 
+            <% if(currentUser && burrito.author._id.equals(currentUser._id)){ %>
+                <div class="owner-zone">
+                    You own this post:
+                    <a href="/burritos/<%= burrito._id %>/edit"><button class="edit-btn">Edit</button></a>
+                    <form action="/burritos/<%= burrito._id %>/?_method=DELETE" method="POST"><button class="delete-btn">Delete</button></form> 
+                </div>
+            <% } %> 
             <a href="/burritos">Back</a>
     </section>
 </body>
