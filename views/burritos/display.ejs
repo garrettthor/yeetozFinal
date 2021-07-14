@@ -1,48 +1,50 @@
 <%- layout('layouts/boilerplate.ejs')  %> 
 
 <body>
+    <section class="modal">
+        <div class="container feed-zone">
+            <h2 class="main-title">Confirm Delete?</h2>
+        </div>
+        <div class="row">
+            <button class="cncl-btn-modal">Cancel</button>
+            <form action="/burritos/<%= burrito._id %>/?_method=DELETE" method="POST"><button class="del-btn-modal">Delete</button></form>
+            
+        </div>
+    </section>
+
     <section class="feed-zone container">
             <div class="feed-card">
                 <div class="card-title">
                     <%= burrito.title %>
                 </div>
-
                 <div class="card-section">
                     by: <%= burrito.author.username %> 
                 </div>
-
                 <div class="card-image">
                     <% for(let img of burrito.image) { %> 
                     <img class="feed-img" src="<%= img.url %>">
                     <% } %> 
                 </div>
-
                 <div class="card-section card-text-indent">
                     <strong><%= burrito.restaurant %></strong>, <%= burrito.location %> 
                 </div>
-
                 <div class="card-section card-text-indent">
                     $<%= burrito.price %>
                 </div>
-
                 <div class="card-section card-text-indent">
                     <%= burrito.description %> 
                 </div>
-                
                 <div class="card-section-last">
                     <%= moment(burrito.createdAt).format('MMMM Do YYYY, h:mm:ss a') %>
                 </div>
             </div>
             <div class="card-section-interact">
-
                 <div class="megusta-btn-area">
                     <button class="megusta-btn">👍 Me Gusta</button>
                 </div>
-
                 <div class="yeet-btn-area">
                     <button class="yeet-btn">Yeet 👎</button>
                 </div>
-
             </div>
             <div>
                 <h2>69%</h2>
@@ -51,7 +53,7 @@
                 <div class="owner-zone">
                     You own this post:
                     <a href="/burritos/<%= burrito._id %>/edit"><button class="edit-btn">Edit</button></a>
-                    <form action="/burritos/<%= burrito._id %>/?_method=DELETE" method="POST"><button class="delete-btn">Delete</button></form> 
+                    <button class="delete-btn">Delete</button>
                 </div>
             <% } %> 
             <a href="/burritos">Back</a>
