@@ -38,17 +38,30 @@
                     <%= moment(burrito.createdAt).format('MMMM Do YYYY, h:mm:ss a') %>
                 </div>
             </div>
+
+            <!-- Ok, here we gon make the likes/dislikes PUT routes and see how that works... -->
+
             <div class="card-section-interact">
                 <div class="megusta-btn-area">
-                    <button class="megusta-btn">👍 Me Gusta</button>
+                    <form action="/burritos/megusta/<%= burrito._id %>?_method=PUT" method="POST">
+                        <button class="megusta-btn">👍 Me Gusta</button>
+                    </form>
+                    
                 </div>
                 <div class="yeet-btn-area">
-                    <button class="yeet-btn">Yeet 👎</button>
+                    <form action="/burritos/yeet/<%= burrito._id %>?_method=PUT" method="POST">
+                        <button class="yeet-btn">Yeet 👎</button>
+                    </form>
                 </div>
             </div>
+
+            <!-- We need to make this display the correct SCORE for the burrito below, none of this NAN bs -->
+
             <div>
                 <h2>69%</h2>
-            </div> 
+            </div>
+
+
             <% if(currentUser && burrito.author._id.equals(currentUser._id)){ %>
                 <div class="owner-zone">
                     You own this post:
@@ -58,4 +71,5 @@
             <% } %> 
             <a href="/burritos">Back</a>
     </section>
+
 </body>

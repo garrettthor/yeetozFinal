@@ -80,6 +80,10 @@ app.use((req, res, next) => {
     next();
 })
 
+
+
+//Begin ROUTES
+
 app.get('/', (req, res) => {
     res.render('index');
 });
@@ -129,6 +133,40 @@ app.delete('/burritos/:id', async(req, res) => {
     res.redirect('/burritos');
 });
 
+// Likes routes
+
+app.put('/burritos/megusta/:id', async(req, res) => {
+    req.flash('success', 'Me gusta...')
+    const user = req.user;
+    const { id } = req.params;
+    if(user){
+        const burrito = await Burrito.findByIdAndUpdate(id, { $inc: { megustas: 1}} )
+    }
+    console.log(` clicked MEGUSTA`);
+    res.redirect('back');
+});
+
+app.put('/burritos/yeet/:id', async(req, res) => {
+    const user = req.user._id;
+    console.log(user)
+    const { id } = req.params;
+    const burrito = await Burrito.findById(req.params.id)
+    const burritoUpdateOpinions = await Burrito.findByIdAndUpdate(id, { $inc: {alreadyOpinioned: user}} )
+    
+    if(user){
+        req.flash('success', 'No te gusta...')
+        const burritoPut = await Burrito.findByIdAndUpdate(id, { $inc: { nomegustas: 1}} )
+    } else {
+        req.flash('error', 'You must be logged in to have an opinion.')
+    }
+    console.log(`clicked YEET`);
+    console.log(burrito)
+    res.redirect('back');
+});
+
+
+// Begin USERS routes
+
 app.post('/users/login', passport.authenticate('local', { failureFlash: true, failureRedirect: '/users/login' }), (req, res) => {
     req.flash('success', 'Welcome back!')
     res.redirect('/burritos');
@@ -164,7 +202,7 @@ app.get('/users/logout', (req, res) =>{
     res.redirect('/burritos')
 });
 
-
+// Obligatory listen method
 
 app.listen(PORT, () => {
     console.log(`Escuchando a PORT ${PORT}.  Gracias.`);

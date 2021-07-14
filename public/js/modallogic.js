@@ -5,7 +5,6 @@ preDeleteBtn.addEventListener('click', openModal);
 
 function openModal() {
     document.querySelector('.modal').style = 'display: block;';
-
 };
 
 cancelBtn.addEventListener('click', cancelDel);
