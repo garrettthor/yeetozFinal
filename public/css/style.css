@@ -139,6 +139,7 @@ nav a:hover {
 /*-----------------------------------------------*/
 
 .megusta-btn{
+    font-size: 18px;
     width: 120px;
     height: 30px;
     background: rgb(0, 89, 255);
@@ -154,6 +155,7 @@ nav a:hover {
 }
 
 .yeet-btn {
+    font-size: 18px;
     width: 120px;
     height: 30px;
     background: red;

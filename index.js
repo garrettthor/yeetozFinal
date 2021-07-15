@@ -151,7 +151,7 @@ app.put('/burritos/yeet/:id', async(req, res) => {
     console.log(user)
     const { id } = req.params;
     const burrito = await Burrito.findById(req.params.id)
-    const burritoUpdateOpinions = await Burrito.findByIdAndUpdate(id, { $inc: {alreadyOpinioned: user}} )
+    const burritoUpdateOpinions = await Burrito.findByIdAndUpdate(id, { $push: {alreadyOpinioned: this.user}}, {new: true} )
     
     if(user){
         req.flash('success', 'No te gusta...')

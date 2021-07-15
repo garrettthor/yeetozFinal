@@ -40,7 +40,7 @@
             </div>
 
             <!-- Ok, here we gon make the likes/dislikes PUT routes and see how that works... -->
-
+            <% if(currentUser) { %> 
             <div class="card-section-interact">
                 <div class="megusta-btn-area">
                     <form action="/burritos/megusta/<%= burrito._id %>?_method=PUT" method="POST">
@@ -54,11 +54,11 @@
                     </form>
                 </div>
             </div>
-
+            <% } %> 
             <!-- We need to make this display the correct SCORE for the burrito below, none of this NAN bs -->
 
             <div>
-                <h2>69%</h2>
+                <h2><%= ((burrito.megustas/(burrito.megustas + burrito.nomegustas)) * 100).toFixed(1) %>%</h2>
             </div>
 
 
