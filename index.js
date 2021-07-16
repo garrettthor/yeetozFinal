@@ -16,14 +16,14 @@ const moment = require('moment');
 const multer = require('multer');
 const { storage } = require('./cloudinary-config')
 const upload = multer({ storage })
-const PORT = 3000;
+// const PORT = 3000;
 
 // Import models
 const Burrito = require('./models/burrito-model')
 const User = require('./models/user-model');
 
 //------------Database Connection----------------------
-mongoose.connect('mongodb://localhost:27017/yeetoz3', {
+mongoose.connect(process.env.MONGO_STRING, {
     useNewUrlParser: true,
     useCreateIndex: true,
     useUnifiedTopology: true,
@@ -147,20 +147,28 @@ app.put('/burritos/megusta/:id', async(req, res) => {
 });
 
 app.put('/burritos/yeet/:id', async(req, res) => {
+    // This successfully identifies the currently logged in user by their _id 
     const user = req.user._id;
     console.log(user)
+    // This succussfully identifies the post (aka burrito)
     const { id } = req.params;
+    // I have this just so I can console.log(burrito) at the bottom to see if the user has pushed to the array(alreadyOpinioned)
     const burrito = await Burrito.findById(req.params.id)
-    const burritoUpdateOpinions = await Burrito.findByIdAndUpdate(id, { $push: {alreadyOpinioned: this.user}}, {new: true} )
-    
+    // This is where it *should* push the user into the array.  It don't. :(
+    const burritoUpdateOpinions = await Burrito.findByIdAndUpdate(id, { $push: {alreadyOpinioned: user}}, {new: true} )
+    // If there *is* a logged in user, it will flash SUCCESS, and it successfully updates the disklikes("nomegustas") by 1
     if(user){
         req.flash('success', 'No te gusta...')
         const burritoPut = await Burrito.findByIdAndUpdate(id, { $inc: { nomegustas: 1}} )
+    // Or it will flash ERROR and let you know you need to be logged in
     } else {
         req.flash('error', 'You must be logged in to have an opinion.')
     }
+    // Printing for my own knowledge that the button got clicked and SOMETHING happened lol
     console.log(`clicked YEET`);
+    // Printing for my own knowledge the entire burrito object so I can see that A.) the nomegustas property increased by 1 and B.) if the alreadyOpinioned array updated (which is isn't...so far)
     console.log(burrito)
+    // Refreshes the displayed post, showing an updated ratio for the likes/dislikes
     res.redirect('back');
 });
 
