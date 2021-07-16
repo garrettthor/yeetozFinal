@@ -108,10 +108,20 @@ nav a:hover {
     padding: 5px;
 }
 
+.score-area{
+    margin: 0;
+    padding: 0;
+}
+
+.score-area h2{
+    margin: 0;
+    padding: 0;
+}
+
 .card-section-interact {
     display: flex;
     justify-content: space-between;
-    width: 300px;
+    width: 350px;
     margin-bottom: 10px;
     padding: 0 10px;
 }
@@ -125,12 +135,13 @@ nav a:hover {
 }
 
 .owner-zone {
-    padding: 10px;
+    padding-bottom: 10px;
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    flex-direction: row;
+    justify-content: space-around;
     width: 400px;
     border: 2px solid rgb(185, 185, 185);
+    margin-bottom: 10px;
 }
 
 /*-----------------------------------------------*/
@@ -139,7 +150,7 @@ nav a:hover {
 
 .megusta-btn{
     font-size: 18px;
-    width: 120px;
+    width: 150px;
     height: 30px;
     background: rgb(0, 89, 255);
     border: 2px solid rgb(0, 89, 255);
@@ -155,7 +166,7 @@ nav a:hover {
 
 .yeet-btn {
     font-size: 18px;
-    width: 120px;
+    width: 150px;
     height: 30px;
     background: red;
     border: 2px solid red;

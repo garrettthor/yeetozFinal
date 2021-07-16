@@ -38,6 +38,11 @@
                     <%= moment(burrito.createdAt).format('MMMM Do YYYY, h:mm:ss a') %>
                 </div>
             </div>
+            
+            <!-- We need to make this display the correct SCORE for the burrito below, none of this NAN bs -->
+            <div class="score-area">
+                <h2><%= ((burrito.megustas/(burrito.megustas + burrito.nomegustas)) * 100).toFixed(1) %>%</h2>
+            </div>
 
             <!-- Ok, here we gon make the likes/dislikes PUT routes and see how that works... -->
             <% if(currentUser) { %> 
@@ -55,16 +60,9 @@
                 </div>
             </div>
             <% } %> 
-            <!-- We need to make this display the correct SCORE for the burrito below, none of this NAN bs -->
-
-            <div>
-                <h2><%= ((burrito.megustas/(burrito.megustas + burrito.nomegustas)) * 100).toFixed(1) %>%</h2>
-            </div>
-
-
+            
             <% if(currentUser && burrito.author._id.equals(currentUser._id)){ %>
                 <div class="owner-zone">
-                    You own this post:
                     <a href="/burritos/<%= burrito._id %>/edit"><button class="edit-btn">Edit</button></a>
                     <button class="delete-btn">Delete</button>
                 </div>
