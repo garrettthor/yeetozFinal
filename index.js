@@ -16,7 +16,7 @@ const moment = require('moment');
 const multer = require('multer');
 const { storage } = require('./cloudinary-config')
 const upload = multer({ storage })
-// const PORT = 3000;
+const port = process.env.PORT || 3000;
 
 // Import models
 const Burrito = require('./models/burrito-model')
@@ -212,6 +212,6 @@ app.get('/users/logout', (req, res) =>{
 
 // Obligatory listen method
 
-app.listen(PORT, () => {
+app.listen(port, () => {
     console.log(`Escuchando a PORT (whatever port Heroku uses?).  Gracias.`);
 });
