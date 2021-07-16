@@ -31,9 +31,9 @@ nav *{
 nav a {
     text-decoration: none;
     color: rgb(0, 0, 0);
-    font-size: 16px;
+    font-size: 14px;
     margin: 0;
-    margin: 0 10px;
+    margin: 0 6px;
     width: auto;
 }
 nav a:hover {
@@ -76,7 +76,6 @@ nav a:hover {
 
 .card-title {
     color: white;
-
     background:rgb(60, 190, 100);
     font-size: 26px;
     font-weight: bold;
@@ -348,4 +347,32 @@ form button:active {
 
 textarea {
     width: 400px;
+}
+
+/*-----------------------------------------------*/
+/* MEDIA QUERIES */
+/*-----------------------------------------------*/
+
+@media only screen and (max-width: 415px) {
+    .feed-card {
+        width: 350px;
+    }
+    .owner-zone {
+        width: 350px;
+    }
+    .flash-message-error {
+        width: 350px;
+    }
+    .flash-message-success {
+        width: 350px;
+    }
+    .input-field div input {
+        width: 350px;
+    }
+    form button {
+        width: 350px;
+    }
+    textarea {
+        width: 350px;
+    }
 }

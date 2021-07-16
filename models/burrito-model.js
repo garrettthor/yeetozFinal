@@ -43,7 +43,7 @@ const BurritoSchema = new Schema({
         ref: 'User',
     },
     aleadyOpinioned: [{
-        type: mongoose.Types.ObjectId,
+        type: Schema.Types.ObjectId,
         ref: 'User'
     }],
 })
