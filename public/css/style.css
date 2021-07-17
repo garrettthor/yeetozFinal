@@ -49,12 +49,17 @@ nav a:hover {
 }
 
 /*-----------------------------------------------*/
-/* CARD STYLING */
+/* HEADING STYLING */
 /*-----------------------------------------------*/
 
 .main-title {
     text-align: center;
+    margin: 10px;
 }
+
+/*-----------------------------------------------*/
+/* CARD STYLING */
+/*-----------------------------------------------*/
 
 .container {
     display: flex;
@@ -254,8 +259,6 @@ nav a:hover {
     background: rgb(255, 120, 120);
     border: 2px solid rgb(255, 120, 120);
     border-radius: 2px;
-    height: 20px;
-    width: 20px;
 }
 
 .close-out-btn:hover {
